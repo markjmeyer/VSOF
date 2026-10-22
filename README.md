@@ -4,6 +4,14 @@ Code to fit variational scalar-on-function (VSOF) regression models and calculat
 ## Functions
 
 ### VSOF model
+```
+vsof(...)
+```
+
+### ZLS test
+```
+zls_test(...)
+```
 
 ## Simulations folder
 Contains sample code for the parallelized run of simulation settings described by Meyer and Cheng (2026).
