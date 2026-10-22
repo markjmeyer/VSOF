@@ -12,11 +12,13 @@ vsof(fixed, se = NULL, fe = NULL, Ts = NULL, data,
                   tol = 1e-5, maxIter = 500, up = 100, dots = up/10,
                   verbose = TRUE)
 ```
+`fixed` is an R `formula` object specifying the outcome and fixed effects, minimally set to `y ~ 1`.
 
 ### ZLS test
 ```
-zls_test(...)
+zls_test(model, test = NULL)
 ```
+`model` is of class `vsof`
 
 ## Simulations folder
 Contains sample code for the parallelized run of simulation settings described by Meyer and Cheng (2026).
