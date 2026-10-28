@@ -3,7 +3,7 @@ Code to fit variational scalar-on-function (VSOF) regression models and calculat
 
 ## Functions
 
-### VSOF model
+### VSOF Model
 ```
 vsof(fixed, se = NULL, fe = NULL, Ts = NULL, data, 
                   se.spline = NULL, fe.spline = NULL, family = gaussian(link = "identity"),
@@ -12,9 +12,12 @@ vsof(fixed, se = NULL, fe = NULL, Ts = NULL, data,
                   tol = 1e-5, maxIter = 500, up = 100, dots = up/10,
                   verbose = TRUE)
 ```
-`fixed` is an R `formula` object specifying the outcome and fixed effects, minimally set to `y ~ 1`. To identify functional effects, use the argument `fe` which takes a one sided `formula` object of the form `~ W` where `W` is a $n\times T$ matrix of functional effects. To specify multiple functional effects, use `fe = ~ W1 + W2`, etc.
+`fixed` is an R `formula` object specifying the outcome and fixed effects, minimally set to `y ~ 1`. To identify functional effects, use the argument `fe` which takes a one sided `formula` object of the form `~ W` where `W` is a $n\times T$ matrix of functional effects. To specify multiple functional effects, use `fe = ~ W1 + W2`, etc. 
 
-### ZLS test
+#### Experimental Features
+The argument `se` can be used to specify smoothed, non-functional effects. The argument `family` can take both `gaussian(link = "identity")` (as shown) and `binomial(link = "probit")` for binary outcomes. Other link functions are not currently supported. The smoothed effect and binary outcome are experimental and not fully vetted. Meyer and Cheng (2026) only considers Gaussian outcomes and functional effects.
+
+### ZLS Test
 ```
 zls_test(model, test = NULL)
 ```
