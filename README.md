@@ -1,5 +1,5 @@
 # VSOF
-Code to fit variational scalar-on-function (VSOF) regression models and calculate a global test of functional effects.
+Code to fit variational scalar-on-function (VSOF) regression models and calculate a global test of functional effects. The file vsof.R is in the Code folder and contains code for implementing both variational scalar-on-function regression and the ZLS test. The primary functions are `vsof()` and `zls_test()`, the usage of which we describe below. Additional functions like `coef()` and `plot()` are defined for objects of class `vsof`. 
 
 ## Functions
 
@@ -12,7 +12,7 @@ vsof(fixed, se = NULL, fe = NULL, Ts = NULL, data,
                   tol = 1e-5, maxIter = 500, up = 100, dots = up/10,
                   verbose = TRUE)
 ```
-`fixed` is an R `formula` object specifying the outcome and fixed effects, minimally set to `y ~ 1`.
+`fixed` is an R `formula` object specifying the outcome and fixed effects, minimally set to `y ~ 1`. To identify functional effects, use the argument `fe` which takes a one sided `formula` object of the form `~ W` where `W` is a $n\times T$ matrix of functional effects.
 
 ### ZLS test
 ```
@@ -21,4 +21,4 @@ zls_test(model, test = NULL)
 `model` is of class `vsof`
 
 ## Simulations folder
-Contains sample code for the parallelized run of simulation settings described by Meyer and Cheng (2026).
+Contains sample code for the parallelized run of simulation settings described by Meyer and Cheng (2026). The file bayesian_helpers.R in the Code folder is required to implement the fully Bayesian models in the simulation file.
