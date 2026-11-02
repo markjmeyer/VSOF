@@ -23,7 +23,7 @@ The argument `se` can be used to specify smoothed, non-functional effects. The a
 ```
 zls_test(model, test = NULL)
 ```
-`model` is of class `vsof`. It performs the ZLS test for variational functional effects and returns an object of class `htest`. When a model has multiple functional effects, all tests will be returned if `test = NULL`. The argument `test` can be used to extract a specific test when multiple functional effects are fit. The order the effects appear in the `fe` one-sided `formula` determine the numerical order of the test, 1, 2, etc.
+`model` is of class `vsof`. It performs the ZLS test for variational functional effects and returns an object of class `htest`. When a model has multiple functional effects, all tests will be returned if `test = NULL`. The argument `test` can be used to extract a specific test when multiple functional effects are fit. The order the tests appear in is the order implied by the one-sided `formula` supplied to the `fe` argument. For example, if the `fe` argument has the form `fe = ~ W1 + W2 + W3`, then `zls_test(model, test = 1)` extracts the test for `W1`, `zls_test(model, test = 2)` extracts the test for `W2`, and `zls_test(model, test = 3)` extracts the test for `W3`.
 
 ## Simulations folder
 Contains sample code for the parallelized run of simulation settings described by Meyer and Cheng (2026). The file bayesian_helpers.R in the Code folder is required to implement the fully Bayesian models in the simulation file.
