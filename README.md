@@ -19,6 +19,9 @@ To change the default spline specifications for the functional effect, set `fe.s
 #### Experimental Features
 The argument `se` can be used to specify smoothed, non-functional effects. The argument `family` can take both `gaussian(link = "identity")` (as shown) and `binomial(link = "probit")` for binary outcomes. Other link functions are not currently supported. The smoothed effect and binary outcome are experimental and not fully vetted. Meyer and Cheng (2026) only considers Gaussian outcomes and functional effects.
 
+#### Output
+`vsof()` returns an object of class `vsof`. Valid class functions include `plot()`, `coef()`, and `zls_test()` (see below). The object itself contains the variational estimates of the mean in `out$VBEstimates`, the transformed functional effects in `out$funcEffect`, variance estimates in `out$varComps`, among other details related to the model fit. Convergence details can be found in `out$algOut` including the number of iterations (`iter`), the ELBO (`logpi`), and changes in the ELBO (`lDelta`).
+
 ### ZLS Test
 ```
 zls_test(model, test = NULL)
